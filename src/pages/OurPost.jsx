@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
-import { BrowserRouter } from 'react-router-dom';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
 
@@ -14,12 +13,12 @@ useEffect(() => {
 }, []);
 return(
     <>
-        <h1 className='text-center'><strong>Lista Post</strong></h1>
         <Link className="btn btn-primary m-2" to={"/home"}>Home</Link>
         <Link className="btn btn-warning m-2" to={"/contatti"}>Contatti</Link>
+    <h1 className='text-center'><strong>Lista Post</strong></h1>
     <div className="row row-cols-3 g-3 my-3">
-    {blog.map((curBlog) => (
-    <div key={curBlog.id} className="col">
+    {blog.map((curBlog, index) => (
+    <div key={`${curBlog.id}-${index}`} className="col">
     <Card character={curBlog}/>
     </div>
     ))}                
