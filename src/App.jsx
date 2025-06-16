@@ -6,12 +6,13 @@ import GuestLayout from './layouts/GuestLayout';
 import CreatePost from './pages/CreaPost';
 import SinglePost from './pages/SinglePost';
 import NotFound from './pages/NotFound';
+import { PostProvider } from './components/contexts/PostContexts';
 
 
 function App() {
-  return (
-    <>
-    <BrowserRouter>
+  return (   
+    <PostProvider>
+      <BrowserRouter>
     <Routes>
       <Route element={<GuestLayout />}>
       <Route path="/" element={<Home />} />
@@ -24,8 +25,8 @@ function App() {
       <Route path="*" element={<NotFound />} />
     </Routes>
     </BrowserRouter>
-    </>
-  )
-}
+    </PostProvider>    
+  );
+};
 
 export default App
